@@ -7,10 +7,10 @@ import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const menuItems = [
-    { name: 'Product', href: '#link' },
-    { name: 'Solutions', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'Company', href: '#link' },
+    { name: 'Inicio', href: '#link' },
+    { name: 'Servicios', href: '#link' },
+    { name: 'Nosotros', href: '#link' },
+    { name: 'Contacto', href: '#link' },
 ]
 
 export const HeroHeader = () => {
@@ -97,7 +97,7 @@ export const HeroHeader = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                            {/* <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                                 <Button
                                     size="sm"
                                     variant="outline"
@@ -109,7 +109,7 @@ export const HeroHeader = () => {
                                     nativeButton={false}
                                     render={<Link href="#">Get Started</Link>}
                                 />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

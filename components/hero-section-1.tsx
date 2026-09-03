@@ -8,10 +8,13 @@ import { Spotify } from '@/components/ui/svgs/spotify'
 import { SupabaseFull } from '@/components/ui/svgs/supabase'
 import { Hulu } from '@/components/ui/svgs/hulu'
 import { Bolt } from '@/components/ui/svgs/bolt'
+import { Ypf } from '@/components/ui/svgs/ypf'
+import { Gulf } from '@/components/ui/svgs/Gulf'
 import { FirebaseFull } from '@/components/ui/svgs/firebase'
 import { Beacon } from '@/components/ui/svgs/beacon'
 import { Claude } from '@/components/ui/svgs/claude'
 import { VercelFull } from '@/components/ui/svgs/vercel'
+import { Porta } from './ui/svgs/porta'
 
 export default function HeroSection() {
     return (
@@ -40,7 +43,7 @@ export default function HeroSection() {
                                     </div>
                                 </Link>
 
-                                <h1 className="mx-auto mt-8 max-w-4xl text-balance text-5xl   tracking-tight md:text-6xl lg:mt-12 xl:text-7xl">Customer universe, beautifully connected</h1>
+                                <h1 className="mx-auto mt-8 max-w-4xl text-balance text-5xl   tracking-tight md:text-6xl lg:mt-12 xl:text-7xl">Transporte Emiliano Sanz</h1>
                                 <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-balance md:text-lg">Every account, signal, conversation, and next move in one living workspace that helps teams turn momentum into revenue.</p>
 
                                 <div className="mt-6 flex flex-col items-center justify-center gap-2 md:flex-row">
@@ -95,16 +98,16 @@ export default function HeroSection() {
                                 <ChevronRight className="ml-1 inline-block size-3" />
                             </Link>
                         </div>
-                        <div className="group-hover:blur-xs **:fill-foreground mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 sm:gap-x-16 sm:gap-y-14 md:grid-cols-4">
+                        <div className="group-hover:blur-xs mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 sm:gap-x-16 sm:gap-y-14 md:grid-cols-4">
                             <div className="flex items-center">
-                                <Bolt className="mx-auto h-5 w-full" />
+                                <Ypf className="mx-auto h-5 w-full" />
                             </div>
                             <div className="flex items-center">
-                                <VercelFull className="mx-auto h-4 w-full" />
+                                <Gulf className="mx-auto h-5 w-full" />
                             </div>
                             <div className="flex items-center">
-                                <SupabaseFull className="mx-auto h-6" />
-                            </div>
+                                <Porta className="mx-auto h-5 w-full" />
+                            </div>                            
                             <div className="flex items-center">
                                 <Hulu className="mx-auto h-4 w-full" />
                             </div>
