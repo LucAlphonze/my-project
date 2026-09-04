@@ -15,6 +15,10 @@ import { Beacon } from '@/components/ui/svgs/beacon'
 import { Claude } from '@/components/ui/svgs/claude'
 import { VercelFull } from '@/components/ui/svgs/vercel'
 import { Porta } from './ui/svgs/porta'
+import { Cammesa } from './ui/svgs/cammesa'
+import { Holcim } from './ui/svgs/holcim'
+import { Ypf_gas } from './ui/svgs/ypf_gas'
+import { C_Avellaneda } from './ui/svgs/C_Avellaneda'
 
 export default function HeroSection() {
     return (
@@ -89,7 +93,7 @@ export default function HeroSection() {
 
                 <section className="bg-background pb-16 pt-6 md:pb-32">
                     <div className="group relative m-auto max-w-5xl px-6">
-                        <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
+                        {/* <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
                             <Link
                                 href="/"
                                 className="block text-sm duration-150 hover:opacity-75">
@@ -97,32 +101,29 @@ export default function HeroSection() {
 
                                 <ChevronRight className="ml-1 inline-block size-3" />
                             </Link>
-                        </div>
-                        <div className="group-hover:blur-xs mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 sm:gap-x-16 sm:gap-y-14 md:grid-cols-4">
+                        </div> */}
+                        <div className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-14 md:grid-cols-4">
                             <div className="flex items-center">
-                                <Ypf className="mx-auto h-5 w-full" />
+                                <Ypf className="mx-auto h-10 w-full" />
                             </div>
                             <div className="flex items-center">
-                                <Gulf className="mx-auto h-5 w-full" />
+                                <Gulf className="mx-auto h-20 w-full" />
                             </div>
                             <div className="flex items-center">
-                                <Porta className="mx-auto h-5 w-full" />
+                                <Porta className="mx-auto h-10 w-full" />
                             </div>                            
                             <div className="flex items-center">
-                                <Hulu className="mx-auto h-4 w-full" />
+                                <Cammesa className="mx-auto h-10 w-full" />
                             </div>
                             <div className="flex items-center">
-                                <Spotify className="mx-auto h-6 w-full" />
+                                <Holcim className="mx-auto h-10 w-full" />
                             </div>
                             <div className="flex items-center">
-                                <FirebaseFull className="mx-auto h-6 w-full" />
-                            </div>
-                            <div className="hidden items-center sm:flex">
-                                <Beacon className="mx-auto h-4 w-full" />
+                                <Ypf_gas className="mx-auto h-10 w-full" />
                             </div>
 
-                            <div className="hidden items-center sm:flex">
-                                <Claude className="mx-auto h-5 w-full" />
+                            <div className="flex items-center">
+                                <C_Avellaneda className="mx-auto h-20 w-full" />
                             </div>
                         </div>
                     </div>
