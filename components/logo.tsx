@@ -1,15 +1,8 @@
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import Logo2 from '../public/assets/Logo2.png'
 
 export const Logo = ({ className, uniColor }: { className?: string; uniColor?: boolean }) => {
     return (
-       <Image
-        src={Logo2}
-        alt="app logo"
-        width={147}
-        height={147}
-        />
         // <svg
         //     className={cn('text-foreground h-6 w-full', className)}
         //     viewBox="0 0 797 220"
@@ -41,6 +34,12 @@ export const Logo = ({ className, uniColor }: { className?: string; uniColor?: b
         //         </linearGradient>
         //     </defs>
         // </svg>
+        <Image
+        src='/assets/BASE PNG.png'
+        alt="app logo"
+        width={147}
+        height={147}
+        />
     )
 }
 

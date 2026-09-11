@@ -29,7 +29,7 @@ export default function HeroSection() {
                     <div className="relative pt-24 md:pt-36">
                         <div className="mx-auto max-w-7xl">
                             <div className="px-6 text-center sm:mx-auto lg:mr-auto lg:mt-0">
-                                <Link
+                                {/* <Link
                                     href="#link"
                                     className="group mx-auto flex w-fit items-center gap-3 rounded-full p-1 pl-4 transition-colors duration-300">
                                     <span className="text-sm  ">New:</span>
@@ -45,10 +45,10 @@ export default function HeroSection() {
                                             </span>
                                         </div>
                                     </div>
-                                </Link>
+                                </Link> */}
 
                                 <h1 className="mx-auto mt-8 max-w-4xl text-balance text-5xl   tracking-tight md:text-6xl lg:mt-12 xl:text-7xl">Transporte Emiliano Sanz</h1>
-                                <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-balance md:text-lg">Every account, signal, conversation, and next move in one living workspace that helps teams turn momentum into revenue.</p>
+                                <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-balance md:text-lg">Emiliano Sanz E Hijos SA ofrece soluciones seguras de transporte tanto de cargas generales como peligrosas en Córdoba, con más de 40 años de experiencia logística.</p>
 
                                 <div className="mt-6 flex flex-col items-center justify-center gap-2 md:flex-row">
                                     <Button
@@ -78,13 +78,13 @@ export default function HeroSection() {
                                 <div className="rounded-4xl mask-t-from-25% mask-t-to-65% bg-linear-to-b absolute inset-0 border to-zinc-600"></div>
                                 <div className="bg-background ring-foreground/6.5 before:mask-radial-at-top-left before:mask-radial-from-65% before:mask-radial-[100%_60%] before:ring-foreground before:border-foreground/10 relative rounded-2xl p-2 shadow-xl shadow-black/50 ring before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-l before:border-t">
                                     <div className="bg-foreground/2 z-1 absolute inset-0 rounded-2xl"></div>
-                                    {/* <Image
+                                    <Image
                                         className="bg-background aspect-15/8 relative rounded-2xl"
-                                        src="/mail2.png"
+                                        src="/assets/portada2.JPG"
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
-                                    /> */}
+                                    />
                                 </div>
                             </div>
                         </div>
