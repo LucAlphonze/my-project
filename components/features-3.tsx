@@ -3,9 +3,9 @@ import { Button } from '@/components/ui/button'
 import { ArrowUp, ChevronDown, CloudDownload, HardDriveDownload, Mic2, MonitorDown, Plus } from 'lucide-react'
 import Image from 'next/image'
 
-export default function Features() {
+export default function Features({ ref }: { ref: React.Ref<HTMLElement> }) {
     return (
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20" ref={ref}>
             <div className="mx-auto max-w-7xl px-6">
                 <h2 className="text-muted-foreground max-w-4xl text-balance text-4xl font-medium tracking-tight">
                     <span className="text-foreground">Context before every reply.</span> <br /> Grounded in real account history.
@@ -13,9 +13,8 @@ export default function Features() {
                 <div className="**:data-[slot=card]:bg-background mt-8 grid gap-x-3 gap-y-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
                     <div className="row-span-2 grid grid-cols-subgrid gap-4">
                         <Card className="aspect-9/12 relative overflow-hidden">
-                            <AIInputIllustration />
                             <Image
-                                src="https://images.unsplash.com/photo-1656012710277-e103fe942e30?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                src="/assets/portada2.jpg"
                                 alt="abstract background"
                                 width={670}
                                 height={670}
@@ -24,7 +23,7 @@ export default function Features() {
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
-                            <span className="text-foreground">Seamless handoffs. </span> Ownership changes without resetting the relationship.
+                            <span className="text-foreground">+50 unidades </span> La variedad de nuestra flota, nos permite brindar un servicio de calidad.
                         </p>
                     </div>
 
@@ -34,7 +33,7 @@ export default function Features() {
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
-                            <span className="text-foreground">Proactive alerts. </span> Surface renewals and quiet accounts before they slip.
+                            <span className="text-foreground">+50 años de trayectoria</span> En el rubro, con una fuerte tradición familiar y una cultura de trabajo única.
                         </p>
                     </div>
 
@@ -54,7 +53,7 @@ export default function Features() {
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
-                            <span className="text-foreground">Shared timeline. </span> Sales, success, and support work from one account view.
+                            <span className="text-foreground">Cobertura Nacional </span> Operaciones desde el límite norte de Argentina hasta el Río Colorado (Río Negro).
                         </p>
                     </div>
                 </div>
