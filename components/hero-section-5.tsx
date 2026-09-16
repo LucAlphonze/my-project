@@ -17,7 +17,7 @@ export default function HeroSection({ onClick }: { onClick: () => void }) {
                             <div className="mx-auto w-full max-w-7xl px-6 pb-6 lg:pb-12">
                                 <div className="flex flex-wrap items-end justify-between gap-4 lg:w-2/3">
                                     <h1 className="max-w-md text-balance text-5xl md:text-6xl">Transporte Emiliano Sanz</h1>
-                                    <p className="text-accent-foreground text-balance text-lg">Emiliano Sanz E Hijos SA ofrece soluciones seguras de transporte tanto de cargas generales como peligrosas en Córdoba, con más de 40 años de experiencia logística.</p>
+                                    <p className="text-accent-foreground text-balance text-lg">Emiliano Sanz E Hijos SA ofrece soluciones seguras de transporte tanto de cargas generales como peligrosas en Córdoba, con más de 50 años de experiencia logística.</p>
 
                                     <div className="flex items-center gap-2">
                                         <Button

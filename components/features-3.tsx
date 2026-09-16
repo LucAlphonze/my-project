@@ -2,58 +2,60 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowUp, ChevronDown, CloudDownload, HardDriveDownload, Mic2, MonitorDown, Plus } from 'lucide-react'
 import Image from 'next/image'
+import CardGallery from './carrousel'
+import { EmblaOptionsType } from 'embla-carousel'
+
+const OPTIONS: EmblaOptionsType = { loop: true }
+
 
 export default function Features({ ref }: { ref: React.Ref<HTMLElement> }) {
     return (
         <section className="py-16 md:py-20" ref={ref}>
             <div className="mx-auto max-w-7xl px-6">
                 <h2 className="text-muted-foreground max-w-4xl text-balance text-4xl font-medium tracking-tight">
-                    <span className="text-foreground">Context before every reply.</span> <br /> Grounded in real account history.
+                    <span className="text-foreground">Nuestros servicios</span> <br /> Donde la familia y trabajo se unen para brindar Seriedad, Compromiso y Puntualidad.
                 </h2>
                 <div className="**:data-[slot=card]:bg-background mt-8 grid gap-x-3 gap-y-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
                     <div className="row-span-2 grid grid-cols-subgrid gap-4">
                         <Card className="aspect-9/12 relative overflow-hidden">
-                            <Image
-                                src="/assets/portada2.jpg"
-                                alt="abstract background"
-                                width={670}
-                                height={670}
-                                className="absolute inset-0 size-full object-cover"
-                            />
+                          <CardGallery 
+                            slides={["/assets/portada2.jpg", "/assets/portada3.jpg", "/assets/portada4.jpg"]}
+                             options={OPTIONS} 
+                             />
+
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
-                            <span className="text-foreground">+50 unidades </span> La variedad de nuestra flota, nos permite brindar un servicio de calidad.
+                            <span className="text-foreground">Bateas </span> Nuestras bateas bi-vuelco, tienen la versatilidad necesaria para sus necesidades.
                         </p>
                     </div>
 
                     <div className="row-span-2 grid grid-cols-subgrid gap-4">
-                        <Card className="aspect-9/12 bg-zinc-200! relative overflow-hidden">
-                            <DynamicIslandIllustration />
+                        <Card className="aspect-9/12  relative overflow-hidden">
+                            <CardGallery 
+                            slides={["/assets/portada2.jpg", "/assets/portada3.jpg", "/assets/portada4.jpg"]}
+                             options={OPTIONS} 
+                             />                        
+                           <DynamicIslandIllustration />
+                           
+                             
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
-                            <span className="text-foreground">+50 años de trayectoria</span> En el rubro, con una fuerte tradición familiar y una cultura de trabajo única.
+                            <span className="text-foreground">Tanques</span> Nuestros tanques están diseñados para garantizar la seguridad y eficiencia en la transporte de líquidos.
                         </p>
                     </div>
 
                     <div className="row-span-2 grid grid-cols-subgrid gap-4">
                         <Card className="aspect-9/12 relative overflow-hidden">
-                            <DownloadIllustration />
-
-                            <video
-                                autoPlay
-                                loop
-                                preload="none"
-                                src="https://videos.pexels.com/video-files/37957431/16106725_1440_2560_24fps.mp4"
-                                className="absolute inset-0 size-full object-cover"
-                                width="2700"
-                                height="1440"
-                            />
+                            <CardGallery 
+                            slides={["/assets/portada2.jpg", "/assets/portada3.jpg", "/assets/portada4.jpg"]}
+                             options={OPTIONS} 
+                             />
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
-                            <span className="text-foreground">Cobertura Nacional </span> Operaciones desde el límite norte de Argentina hasta el Río Colorado (Río Negro).
+                            <span className="text-foreground">Grua Hidraulica </span> Nuestra grúa hidráulica está diseñada para levantar y mover cargas pesadas con facilidad y seguridad.
                         </p>
                     </div>
                 </div>
