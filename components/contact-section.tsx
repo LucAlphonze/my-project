@@ -1,6 +1,38 @@
+'use client'
+
 import { MapPin, Paperclip } from 'lucide-react'
+import { FormEvent, useState } from 'react'
 
 export default function ContactSection() {
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+    const [errorMessage, setErrorMessage] = useState('')
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+        setStatus('sending')
+        setErrorMessage('')
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                body: new FormData(event.currentTarget),
+            })
+            const result = (await response.json()) as { error?: string }
+
+            if (!response.ok) {
+                setStatus('error')
+                setErrorMessage(result.error ?? 'No pudimos enviar tu mensaje.')
+                return
+            }
+
+            event.currentTarget.reset()
+            setStatus('success')
+        } catch {
+            setStatus('error')
+            setErrorMessage('No pudimos enviar tu mensaje. Intentá nuevamente.')
+        }
+    }
+
     return (
         <section id="contacto" className="py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6">
@@ -38,7 +70,7 @@ export default function ContactSection() {
 
                     <form
                         className="rounded-2xl bg-background p-5 text-foreground shadow-xl shadow-black/10 sm:p-7 lg:col-start-2 lg:row-span-2 lg:row-start-1"
-                        onSubmit={(event) => event.preventDefault()}
+                        onSubmit={handleSubmit}
                     >
                         <div className="grid gap-5">
                             <div className="grid gap-2">
@@ -89,10 +121,21 @@ export default function ContactSection() {
 
                             <button
                                 className="bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-5 text-sm font-medium transition-colors"
+                                disabled={status === 'sending'}
                                 type="submit"
                             >
-                                Enviar mensaje
+                                {status === 'sending' ? 'Enviando...' : 'Enviar mensaje'}
                             </button>
+                            {status === 'success' && (
+                                <p className="text-sm text-green-700" role="status">
+                                    Mensaje enviado correctamente. Nos pondremos en contacto pronto.
+                                </p>
+                            )}
+                            {status === 'error' && (
+                                <p className="text-sm text-destructive" role="alert">
+                                    {errorMessage}
+                                </p>
+                            )}
                         </div>
                     </form>
                 </div>
