@@ -29,20 +29,23 @@ const EmblaCarousel = (props: PropType) => {
   } = usePrevNextButtons(emblaApi)
 
   return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container relative w-full h-[400px]" >
-         {slides.map((src, index) => (
-          <Image 
-            key={index}
-            src={src} alt="" 
-            fill={true}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"             
-           />
-        ))}
-        
+    <div className="embla">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container h-[400px]">
+          {slides.map((src, index) => (
+            <div className="embla__slide relative" key={index}>
+              <Image
+                src={src}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+          ))}
         </div>
-    <div className="embla__controls ">
-        <div className="embla__buttons" >
+      </div>
+      <div className="embla__controls">
+        <div className="embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
@@ -59,7 +62,6 @@ const EmblaCarousel = (props: PropType) => {
           ))}
         </div>
       </div>
-  
     </div>
   )
 }

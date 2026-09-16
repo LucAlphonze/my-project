@@ -213,6 +213,8 @@
 .embla {
   width: 100%;
   height: 100%;
+  --slide-size: 100%;
+  --slide-spacing: 0rem;
   /* position: relative; */
 }
 
