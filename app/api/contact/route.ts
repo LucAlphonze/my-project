@@ -28,9 +28,16 @@ export async function POST(request: Request) {
     }
 
     const formData = await request.formData()
+    const category = formData.get('category')
     const email = formData.get('email')
     const message = formData.get('message')
+    const name = formData.get('name')
+    const phone = formData.get('phone')
+    const service = formData.get('service')
     const file = formData.get('file')
+
+    const formCategory =
+        category === 'cotizacion' || category === 'trabaja-con-nosotros' ? category : 'contacto'
 
     if (typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return jsonError('Ingresá una dirección de email válida.', 400)
@@ -42,6 +49,18 @@ export async function POST(request: Request) {
         message.length > maxMessageLength
     ) {
         return jsonError('El mensaje debe tener entre 1 y 5000 caracteres.', 400)
+    }
+
+    if (typeof name !== 'string' && name !== null) {
+        return jsonError('El nombre no es válido.', 400)
+    }
+
+    if (typeof phone !== 'string' && phone !== null) {
+        return jsonError('El teléfono no es válido.', 400)
+    }
+
+    if (typeof service !== 'string' && service !== null) {
+        return jsonError('La opción seleccionada no es válida.', 400)
     }
 
     if (!(file instanceof File || file === null)) {
@@ -79,13 +98,28 @@ export async function POST(request: Request) {
               ]
             : undefined
 
+    const categoryLabel =
+        formCategory === 'cotizacion'
+            ? 'Cotización'
+            : formCategory === 'trabaja-con-nosotros'
+              ? 'Postulación'
+              : 'Contacto'
+
+    const details = [
+        name && typeof name === 'string' ? `Nombre: ${name}` : null,
+        phone && typeof phone === 'string' ? `Teléfono: ${phone}` : null,
+        service && typeof service === 'string' ? `Servicio: ${service}` : null,
+    ].filter(Boolean)
+
+    const emailText = [message, ...(details.length ? [details.join('\n')] : [])].join('\n\n')
+
     try {
         await transporter.sendMail({
             from: process.env.SMTP_FROM ?? smtpUser,
             to: destinationEmail,
             replyTo: email,
-            subject: `Nuevo contacto desde la web: ${email}`,
-            text: message,
+            subject: `Nuevo ${categoryLabel} desde la web: ${email}`,
+            text: emailText,
             attachments,
         })
     } catch (error) {

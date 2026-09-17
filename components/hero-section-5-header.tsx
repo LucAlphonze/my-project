@@ -8,7 +8,8 @@ const menuItems = [
     { name: 'Inicio', href: '#link' },
     { name: 'Servicios', href: '#link' },
     { name: 'Nosotros', href: '#historia' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Cotización', href: '#cotizacion' },
+    { name: 'Trabajá con nosotros', href: '#trabaja-con-nosotros' },
 ]
 
 export const HeroHeader = () => {

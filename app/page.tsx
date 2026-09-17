@@ -3,7 +3,8 @@
 import Features from "@/components/features-3";
 import HeroSection from "@/components/hero-section-5";
 import CompanyHistory from "@/components/company-history";
-import ContactSection from "@/components/contact-section";
+import CotizacionSection from "@/components/cotizacion-section";
+import TrabajaConNosotrosSection from "@/components/trabaja-con-nosotros-section";
 import { useRef } from "react";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
     <HeroSection onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })}/>  
     <Features ref={targetRef}/> 
     <CompanyHistory />
-    <ContactSection />
+    <CotizacionSection />
+    <TrabajaConNosotrosSection />
   </div>
 }
