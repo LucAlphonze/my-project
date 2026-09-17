@@ -60,7 +60,7 @@ export default function HeroVideo(): React.JSX.Element {
 
             <div className="flex flex-wrap gap-4 pt-2">
               <a
-                href="#contacto"
+                href="#cotizacion"
                 className="px-6 py-3.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-red-600/30 hover:shadow-red-600/50"
               >
                 Cotizar Servicio
