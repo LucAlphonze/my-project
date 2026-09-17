@@ -1,18 +1,18 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-allowedDevOrigins:['192.168.100.9'],
-  images:{
-    remotePatterns:[
+ allowedDevOrigins: ['192.168.100.9'],
+ images: {
+   formats: ['image/avif', 'image/webp'],
+   remotePatterns: [
       {
-        hostname:'images.unsplash.com',
-        protocol:'https',
-        port:'',
-      }
-    ]
-   }
-  
+       hostname: 'images.unsplash.com',
+       protocol: 'https',
+       port: '',
+     },
+   ],
+ },
 }
 
-export default nextConfig;
+export default nextConfig
+

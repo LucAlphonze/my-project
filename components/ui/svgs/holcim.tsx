@@ -1,5 +1,6 @@
 import type { SVGProps } from 'react'
-export const Holcim = (props: SVGProps) => (
+
+export const Holcim = (props: SVGProps<SVGSVGElement>) => (
 <svg xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 2241 536" 
     width="2241" 

@@ -14,18 +14,15 @@ type PropType = {
   options?: EmblaOptionsType
 }
 
-const EmblaCarousel = (props: PropType) => {
-  const { slides, options } = props
+const EmblaCarousel = ({ slides, options }: PropType) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi)
-
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
+    onNextButtonClick,
   } = usePrevNextButtons(emblaApi)
 
   return (
@@ -33,17 +30,19 @@ const EmblaCarousel = (props: PropType) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container h-[400px]">
           {slides.map((src, index) => (
-            <div className="embla__slide relative" key={index}>
+            <div className="embla__slide relative" key={`${src}-${index}`}>
               <Image
                 src={src}
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={index === 0}
               />
             </div>
           ))}
         </div>
       </div>
+
       <div className="embla__controls">
         <div className="embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
@@ -55,9 +54,7 @@ const EmblaCarousel = (props: PropType) => {
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={'embla__dot'.concat(
-                index === selectedIndex ? ' embla__dot--selected' : ''
-              )}
+              className={['embla__dot', index === selectedIndex ? 'embla__dot--selected' : ''].join(' ')}
             />
           ))}
         </div>

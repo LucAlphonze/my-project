@@ -37,9 +37,12 @@ export const useDotButton = (
   useEffect(() => {
     if (!emblaApi) return
 
-    onInit(emblaApi)
-    onSelect(emblaApi)
+    const syncState = () => {
+      onInit(emblaApi)
+      onSelect(emblaApi)
+    }
 
+    queueMicrotask(syncState)
     emblaApi.on('reInit', onInit).on('reInit', onSelect).on('select', onSelect)
 
     return () => {

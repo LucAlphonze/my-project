@@ -1,5 +1,6 @@
 import type { SVGProps } from 'react'
-export const C_Avellaneda = (props: SVGProps) => (
+
+export const C_Avellaneda = (props: SVGProps<SVGSVGElement>) => (
 <svg 
     xmlns="http://www.w3.org/2000/svg" 
 	 width="100%" 

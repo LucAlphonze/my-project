@@ -4,7 +4,6 @@ import { HeroHeader } from '@/components/hero-section-5-header'
 import { ChevronRight } from 'lucide-react'
 import LogoCloud from '@/components/hero-section-5-logo-cloud'
 import HeroVideo from './hero-section-5-video'
-import { useRef } from 'react'
 
 export default function HeroSection({ onClick }: { onClick: () => void }) {
     return (

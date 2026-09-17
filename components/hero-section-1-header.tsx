@@ -4,7 +4,6 @@ import React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 const menuItems = [
     { name: 'Inicio', href: '#link' },

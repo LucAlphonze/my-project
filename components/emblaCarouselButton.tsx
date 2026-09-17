@@ -39,8 +39,16 @@ export const usePrevNextButtons = (
   useEffect(() => {
     if (!emblaApi) return
 
-    onSelect(emblaApi)
+    const syncState = () => {
+      onSelect(emblaApi)
+    }
+
+    queueMicrotask(syncState)
     emblaApi.on('reInit', onSelect).on('select', onSelect)
+
+    return () => {
+      emblaApi.off('reInit', onSelect).off('select', onSelect)
+    }
   }, [emblaApi, onSelect])
 
   return {

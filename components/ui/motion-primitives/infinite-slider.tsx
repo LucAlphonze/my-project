@@ -1,7 +1,8 @@
 'use client'
+
 import { cn } from '@/lib/utils'
 import { useMotionValue, animate, motion } from 'motion/react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 
 const useMeasure = () => {
     const ref = useRef<HTMLDivElement>(null)
@@ -10,14 +11,18 @@ const useMeasure = () => {
     useEffect(() => {
         if (!ref.current) return
 
-        const observer = new ResizeObserver(() => {
+        const element = ref.current
+        const updateDimensions = () => {
             setDimensions({
-                width: ref.current?.offsetWidth || 0,
-                height: ref.current?.offsetHeight || 0,
+                width: element.offsetWidth || 0,
+                height: element.offsetHeight || 0,
             })
-        })
+        }
 
-        observer.observe(ref.current)
+        updateDimensions()
+        const observer = new ResizeObserver(updateDimensions)
+        observer.observe(element)
+
         return () => observer.disconnect()
     }, [])
 
@@ -34,22 +39,44 @@ export type InfiniteSliderProps = {
     className?: string
 }
 
-export function InfiniteSlider({ children, gap = 16, speed = 100, speedOnHover, direction = 'horizontal', reverse = false, className }: InfiniteSliderProps) {
+export function InfiniteSlider({
+    children,
+    gap = 16,
+    speed = 100,
+    speedOnHover,
+    direction = 'horizontal',
+    reverse = false,
+    className,
+}: InfiniteSliderProps) {
     const [currentSpeed, setCurrentSpeed] = useState(speed)
     const [ref, { width, height }] = useMeasure()
     const translation = useMotionValue(0)
     const [isTransitioning, setIsTransitioning] = useState(false)
     const [key, setKey] = useState(0)
 
+    const motionProps = useMemo(() => {
+        if (!speedOnHover) return {}
+
+        return {
+            onHoverStart: () => {
+                setIsTransitioning(true)
+                setCurrentSpeed(speedOnHover)
+            },
+            onHoverEnd: () => {
+                setIsTransitioning(true)
+                setCurrentSpeed(speed)
+            },
+        }
+    }, [speed, speedOnHover])
+
     useEffect(() => {
-        let controls
+        if (!width && !height) return
+
+        let controls: ReturnType<typeof animate> | undefined
         const size = direction === 'horizontal' ? width : height
         const contentSize = size + gap
         const from = reverse ? -contentSize / 2 : 0
         const to = reverse ? 0 : -contentSize / 2
-
-        const distanceToTravel = Math.abs(to - from)
-        const duration = distanceToTravel / currentSpeed
 
         if (isTransitioning) {
             const remainingDistance = Math.abs(translation.get() - to)
@@ -64,9 +91,12 @@ export function InfiniteSlider({ children, gap = 16, speed = 100, speedOnHover, 
                 },
             })
         } else {
+            const distanceToTravel = Math.abs(to - from)
+            const duration = distanceToTravel / currentSpeed
+
             controls = animate(translation, [from, to], {
                 ease: 'linear',
-                duration: duration,
+                duration,
                 repeat: Infinity,
                 repeatType: 'loop',
                 repeatDelay: 0,
@@ -76,21 +106,8 @@ export function InfiniteSlider({ children, gap = 16, speed = 100, speedOnHover, 
             })
         }
 
-        return controls?.stop
+        return () => controls?.stop()
     }, [key, translation, currentSpeed, width, height, gap, isTransitioning, direction, reverse])
-
-    const hoverProps = speedOnHover
-        ? {
-              onHoverStart: () => {
-                  setIsTransitioning(true)
-                  setCurrentSpeed(speedOnHover)
-              },
-              onHoverEnd: () => {
-                  setIsTransitioning(true)
-                  setCurrentSpeed(speed)
-              },
-          }
-        : {}
 
     return (
         <div className={cn('overflow-hidden', className)}>
@@ -102,7 +119,7 @@ export function InfiniteSlider({ children, gap = 16, speed = 100, speedOnHover, 
                     flexDirection: direction === 'horizontal' ? 'row' : 'column',
                 }}
                 ref={ref}
-                {...hoverProps}
+                {...motionProps}
             >
                 {children}
                 {children}

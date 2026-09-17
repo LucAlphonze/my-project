@@ -1,7 +1,6 @@
 import type { SVGProps } from 'react'
 
-export const Claude = (props: SVGProps) => (
-    <svg
+export const Claude = (props: SVGProps<SVGSVGElement>) => (    <svg
         {...props}
         preserveAspectRatio="xMidYMid"
         viewBox="0 0 512 110"

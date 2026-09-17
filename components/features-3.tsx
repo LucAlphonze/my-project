@@ -1,7 +1,4 @@
 import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { ArrowUp, ChevronDown, CloudDownload, HardDriveDownload, Mic2, MonitorDown, Plus } from 'lucide-react'
-import Image from 'next/image'
 import CardGallery from './carrousel'
 import { EmblaOptionsType } from 'embla-carousel'
 

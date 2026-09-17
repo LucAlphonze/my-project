@@ -1,5 +1,6 @@
 import type { SVGProps } from 'react'
-export const Cammesa = (props: SVGProps) => (
+
+export const Cammesa = (props: SVGProps<SVGSVGElement>) => (
 <svg xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 190 46" 
     width="190" 

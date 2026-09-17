@@ -1,5 +1,6 @@
 import type { SVGProps } from 'react'
-export const Ypf = (props: SVGProps) => (
+
+export const Ypf = (props: SVGProps<SVGSVGElement>) => (
     <svg 
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 350 139" 
