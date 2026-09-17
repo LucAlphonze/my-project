@@ -30,12 +30,9 @@ export default function Features({ ref }: { ref: React.Ref<HTMLElement> }) {
                     <div className="row-span-2 grid grid-cols-subgrid gap-4">
                         <Card className="aspect-9/12  relative overflow-hidden">
                             <CardGallery 
-                            slides={["/assets/tanque1.jpg", "/assets/tanque2.jpg", "/assets/tanque3.jpg"]}
+                            slides={["/assets/tanque1.JPG", "/assets/tanque2.JPG", "/assets/tanque3.JPG"]}
                              options={OPTIONS} 
                              />                        
-                          
-                           
-                             
                         </Card>
 
                         <p className="text-muted-foreground text-balance">
