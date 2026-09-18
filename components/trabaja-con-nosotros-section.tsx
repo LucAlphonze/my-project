@@ -1,6 +1,14 @@
 'use client'
 
-import { ArrowRight, BriefcaseBusiness, FileText, Mail, Phone } from 'lucide-react'
+import {
+    ArrowRight,
+    BadgeCheck,
+    BriefcaseBusiness,
+    FileText,
+    HeartHandshake,
+    Mail,
+    ShieldCheck,
+} from 'lucide-react'
 import { FormEvent, useState } from 'react'
 
 export default function TrabajaConNosotrosSection() {
@@ -45,7 +53,8 @@ export default function TrabajaConNosotrosSection() {
                             Sumate a nuestro equipo.
                         </h2>
                         <p className="mt-6 max-w-lg text-balance text-lg text-muted-foreground">
-                            Estamos buscando personas comprometidas con la excelencia, la responsabilidad y el servicio.
+                            Creemos que las mejores soluciones nacen de equipos que trabajan con confianza,
+                            respeto y un objetivo compartido.
                         </p>
 
                         <div className="mt-8 space-y-5">
@@ -59,33 +68,73 @@ export default function TrabajaConNosotrosSection() {
                                 </div>
                             </div>
                             <div className="flex items-start gap-3">
-                                <Mail className="mt-0.5 size-5 shrink-0 text-primary" />
+                                <HeartHandshake className="mt-0.5 size-5 shrink-0 text-primary" />
                                 <div>
-                                    <p className="font-medium">Comunicación directa</p>
+                                    <p className="font-medium">Relaciones que hacen la diferencia</p>
                                     <p className="mt-1 text-sm text-muted-foreground">
-                                        Te contactaremos para coordinar una entrevista con nuestro equipo.
+                                        Fomentamos vínculos cercanos entre colaboradores, directivos y clientes,
+                                        con diálogo abierto y acompañamiento en cada etapa.
                                     </p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-3">
-                                <Phone className="mt-0.5 size-5 shrink-0 text-primary" />
+                                <ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" />
                                 <div>
-                                    <p className="font-medium">Atención personalizada</p>
+                                    <p className="font-medium">Una forma de trabajar responsable</p>
                                     <p className="mt-1 text-sm text-muted-foreground">
-                                        Te ayudaremos a evaluar el mejor rol según tu experiencia y disponibilidad.
+                                        Nuestro compromiso con la seguridad vial y la calidad se respalda en el
+                                        cumplimiento de las normas ISO 39001 e ISO 9001.
                                     </p>
                                 </div>
                             </div>
                         </div>
+
+                        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                            <div className="rounded-xl border border-border bg-muted/30 p-4">
+                                <BadgeCheck className="size-5 text-primary" />
+                                <p className="mt-3 font-medium">ISO 39001</p>
+                                <p className="mt-1 text-sm text-muted-foreground">
+                                    Gestión de la seguridad vial.
+                                </p>
+                            </div>
+                            <div className="rounded-xl border border-border bg-muted/30 p-4">
+                                <BadgeCheck className="size-5 text-primary" />
+                                <p className="mt-3 font-medium">ISO 9001</p>
+                                <p className="mt-1 text-sm text-muted-foreground">
+                                    Gestión de la calidad.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <form
-                        className="rounded-2xl border border-border bg-muted/30 p-5 text-foreground shadow-sm sm:p-7"
-                        onSubmit={handleSubmit}
-                    >
-                        <input type="hidden" name="category" value="trabaja-con-nosotros" />
+                    <div className="flex flex-col gap-8">
+                        <div
+                            aria-label="Espacio reservado para video institucional"
+                            className="flex aspect-video w-full items-center justify-center rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 px-6 text-center"
+                        >
+                            <div>
+                                <p className="font-medium text-primary">Video institucional</p>
+                                <p className="mt-2 text-sm text-muted-foreground">
+                                    Espacio reservado para el video de colaboradores y directivos.
+                                </p>
+                            </div>
+                        </div>
 
-                        <div className="grid gap-4 md:grid-cols-2">
+                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                            <Mail className="size-5 shrink-0 text-primary" />
+                            <p>
+                                Si te interesa formar parte del equipo, contanos sobre vos y nos pondremos en
+                                contacto.
+                            </p>
+                        </div>
+
+                        <form
+                            className="rounded-2xl border border-border bg-muted/30 p-5 text-foreground shadow-sm sm:p-7"
+                            onSubmit={handleSubmit}
+                        >
+                            <input type="hidden" name="category" value="trabaja-con-nosotros" />
+
+                            <div className="grid gap-4 md:grid-cols-2">
                             <div className="grid gap-2 md:col-span-1">
                                 <label className="text-sm font-medium" htmlFor="trabajo-name">
                                     Nombre y apellido
@@ -179,28 +228,29 @@ export default function TrabajaConNosotrosSection() {
                                     PDF, Word o imagen. Máximo 10 MB.
                                 </p>
                             </div>
-                        </div>
+                            </div>
 
-                        <button
-                            className="mt-6 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-5 text-sm font-medium transition-colors"
-                            disabled={status === 'sending'}
-                            type="submit"
-                        >
-                            <span>{status === 'sending' ? 'Enviando...' : 'Enviar postulación'}</span>
-                            {!status || status !== 'sending' ? <ArrowRight className="size-4" /> : null}
-                        </button>
+                            <button
+                                className="mt-6 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-5 text-sm font-medium transition-colors"
+                                disabled={status === 'sending'}
+                                type="submit"
+                            >
+                                <span>{status === 'sending' ? 'Enviando...' : 'Enviar postulación'}</span>
+                                {status !== 'sending' ? <ArrowRight className="size-4" /> : null}
+                            </button>
 
-                        {status === 'success' && (
-                            <p className="mt-4 text-sm text-green-700" role="status">
-                                Tu postulación fue enviada correctamente. Nos comunicaremos pronto.
-                            </p>
-                        )}
-                        {status === 'error' && (
-                            <p className="mt-4 text-sm text-destructive" role="alert">
-                                {errorMessage}
-                            </p>
-                        )}
-                    </form>
+                            {status === 'success' && (
+                                <p className="mt-4 text-sm text-green-700" role="status">
+                                    Tu postulación fue enviada correctamente. Nos comunicaremos pronto.
+                                </p>
+                            )}
+                            {status === 'error' && (
+                                <p className="mt-4 text-sm text-destructive" role="alert">
+                                    {errorMessage}
+                                </p>
+                            )}
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
