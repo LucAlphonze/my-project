@@ -108,16 +108,17 @@ export default function TrabajaConNosotrosSection() {
                     </div>
 
                     <div className="flex flex-col gap-8">
-                        <div
-                            aria-label="Espacio reservado para video institucional"
-                            className="flex aspect-video w-full items-center justify-center rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 px-6 text-center"
-                        >
-                            <div>
-                                <p className="font-medium text-primary">Video institucional</p>
-                                <p className="mt-2 text-sm text-muted-foreground">
-                                    Espacio reservado para el video de colaboradores y directivos.
-                                </p>
-                            </div>
+                        <div className="overflow-hidden rounded-2xl border border-border bg-black shadow-sm">
+                            <video
+                                aria-label="Video institucional sobre nuestro equipo"
+                                className="aspect-video w-full object-cover"
+                                controls
+                                playsInline
+                                preload="metadata"
+                            >
+                                <source src="/assets/crudo_color_edited.mp4" type="video/mp4" />
+                                Tu navegador no soporta videos HTML5.
+                            </video>
                         </div>
 
                         <div className="flex items-center gap-3 text-sm text-muted-foreground">
