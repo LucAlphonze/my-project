@@ -115,6 +115,9 @@ export default function TrabajaConNosotrosSection() {
                                 controls
                                 playsInline
                                 preload="metadata"
+                                autoPlay
+                                loop
+                                muted
                             >
                                 <source src="/assets/crudo_color_edited.mp4" type="video/mp4" />
                                 Tu navegador no soporta videos HTML5.
