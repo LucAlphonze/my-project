@@ -88,7 +88,7 @@ export default function CotizacionSection() {
                         <div className="grid gap-4 md:grid-cols-2">
                             <div className="grid gap-2 md:col-span-1">
                                 <label className="text-sm font-medium" htmlFor="cotizacion-name">
-                                    Nombre y apellido
+                                    Razon Social
                                 </label>
                                 <input
                                     className="border-input bg-background placeholder:text-muted-foreground focus-visible:ring-ring h-11 rounded-md border px-3 text-sm outline-none focus-visible:ring-2"
